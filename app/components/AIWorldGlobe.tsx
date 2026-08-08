@@ -2,13 +2,14 @@
 
 import { useEffect, useRef, useState } from "react";
 import * as THREE from "three";
+import { concepts } from "../../content/concepts";
 
 export type KnowledgeItem = { name: string; category: string; description: string; position: [number, number, number] };
 
 const knowledge: KnowledgeItem[] = [
   { name: "Neural Network", category: "基础", description: "由相互连接的计算单元构成，用于从数据中学习复杂模式。", position: [-1.15, .45, 1.5] },
   { name: "Deep Learning", category: "基础", description: "通过多层神经网络学习数据中逐级抽象的表示。", position: [-.8, 1.25, 1.25] },
-  { name: "Transformer", category: "基础", description: "以注意力机制为核心的架构，重塑了现代人工智能。", position: [-1.45, .75, .7] },
+  { name: concepts[0].name, category: "基础", description: concepts[0].globe.description, position: concepts[0].globe.position },
   { name: "Attention", category: "基础", description: "让模型在处理信息时动态关注最相关的部分。", position: [-.55, -1.35, 1.25] },
   { name: "Embedding", category: "基础", description: "把概念映射为连续向量，让机器能够计算语义关系。", position: [1.15, -.85, 1.25] },
   { name: "LLM", category: "大模型", description: "在海量文本上训练、能够理解与生成语言的大型模型。", position: [-.35, -.15, 1.85] },

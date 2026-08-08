@@ -61,7 +61,11 @@ export default function Home() {
             <p className="modal-index">KNOWLEDGE NODE · {selected.category}</p>
             <h2>{selected.name}</h2>
             <p>{selected.description}</p>
-            <button className="detail-link" onClick={() => setSection(selected.name)}>进入节点 <span>↗</span></button>
+            {selected.name === "Transformer" ? (
+              <a className="detail-link" href="/concepts/transformer">进入节点 <span>↗</span></a>
+            ) : (
+              <button className="detail-link" onClick={() => setSection(selected.name)}>进入节点 <span>↗</span></button>
+            )}
           </article>
         </div>
       )}
