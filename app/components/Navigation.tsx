@@ -12,7 +12,7 @@ export function Navigation({ onNavigate }: { onNavigate: (name: string) => void 
       </button>
       <nav aria-label="主要导航">
         {items.map((item, index) => (
-          <button className={index === 0 ? "active" : ""} key={item} onClick={() => index === 0 ? window.scrollTo({ top: 0, behavior: "smooth" }) : onNavigate(item)}>{item}</button>
+          <button className={index === 0 ? "active" : ""} key={item} onClick={() => index === 0 ? window.scrollTo({ top: 0, behavior: "smooth" }) : item === "核心术语" ? window.location.assign("/concepts") : onNavigate(item)}>{item}</button>
         ))}
       </nav>
       <button className="search-button" aria-label="搜索知识节点"><Search size={20} strokeWidth={1.5} /></button>

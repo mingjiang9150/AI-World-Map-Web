@@ -38,7 +38,7 @@ export default function Home() {
           <div className="orbit orbit-b" />
           <AIWorldGlobe onSelect={setSelected} />
           {portals.map((portal) => (
-            <ExplorePortal key={portal.title} {...portal} onOpen={() => setSection(portal.title)} />
+            <ExplorePortal key={portal.title} {...portal} onOpen={() => portal.title === "核心术语" ? window.location.assign("/concepts") : setSection(portal.title)} />
           ))}
         </div>
 
