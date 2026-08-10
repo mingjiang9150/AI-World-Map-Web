@@ -35,9 +35,9 @@ export function ConceptAtlas() {
       </header>
 
       <section className="atlas-intro">
-        <p>KNOWLEDGE CONSTELLATION · 05</p>
-        <h1>核心术语<br /><span>关系地图</span></h1>
-        <p>从基础学习到智能体系统。选择一个节点，看见它从哪里来、与什么相连。</p>
+        <p>CONCEPT ATLAS · 05</p>
+        <h1>核心术语</h1>
+        <p>选择一个术语，查看它的上下游关系。</p>
       </section>
 
       <div className="atlas-search">
@@ -74,11 +74,13 @@ export function ConceptAtlas() {
               const isRelated = relatedIds.has(node.id);
               const visible = visibleIds.has(node.id);
               const color = clusterById[node.cluster].color;
+              const labelWidth = Math.max(82, Math.min(148, node.title.length * 16 + 30));
               return <g key={node.id} className={`atlas-node ${isActive ? "active" : ""} ${isRelated ? "related" : ""}`} transform={`translate(${node.x} ${node.y})`} opacity={visible ? (isActive || isRelated ? 1 : .72) : .06} onClick={(event) => { event.stopPropagation(); setActiveId(node.id); }} tabIndex={0} role="button" aria-label={`查看${node.title}`} onKeyDown={(event) => { if (event.key === "Enter" || event.key === " ") setActiveId(node.id); }}>
-                <circle className="node-aura" r={isActive ? 47 : 34} fill={color} opacity={isActive ? .13 : .06} />
-                <circle className="node-core" r={isActive ? 12 : 8} fill={color} filter={isActive ? "url(#nodeGlow)" : undefined} />
-                <text y={isActive ? 66 : 48} textAnchor="middle">{node.title}</text>
-                {isActive && <text className="node-index" y="-58" textAnchor="middle">SELECTED NODE</text>}
+                <circle className="node-aura" r={isActive ? 36 : 27} fill={color} opacity={isActive ? .13 : .06} />
+                <circle className="node-core" r={isActive ? 10 : 7} fill={color} filter={isActive ? "url(#nodeGlow)" : undefined} />
+                <rect className="node-label" x={-labelWidth / 2} y={20} width={labelWidth} height={34} rx="17" style={{ "--node-color": color } as React.CSSProperties} />
+                <text y="42" textAnchor="middle">{node.title}</text>
+                {isActive && <text className="node-index" y="-43" textAnchor="middle">SELECTED</text>}
               </g>;
             })}
           </g>

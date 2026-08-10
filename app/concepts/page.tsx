@@ -7,9 +7,9 @@ export const metadata: Metadata = {
   openGraph: {
     title: "AI World Map · Core Concepts",
     description: "通过十五个核心术语和它们之间的关系，建立人工智能的整体认知。",
-    images: [{ url: "/og-concepts.png", width: 1200, height: 630, alt: "AI World Map — Core Concepts" }],
+    images: [{ url: "/og-concepts-v2.png", width: 1200, height: 630, alt: "AI World Map — Core Concepts" }],
   },
-  twitter: { card: "summary_large_image", images: ["/og-concepts.png"] },
+  twitter: { card: "summary_large_image", images: ["/og-concepts-v2.png"] },
 };
 
 export default function ConceptsPage() { return <ConceptAtlas />; }
